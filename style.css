@@ -1,0 +1,3511 @@
+
+/* =========================================
+   THANGOO — PRIVATE MARKET
+   FULL STYLE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #20252a 0%,
+            #111417 38%,
+            #07090a 72%,
+            #030405 100%
+        );
+
+    color: #f2f4f5;
+}
+
+/* =========================================
+   MAIN EXPERIENCE
+========================================= */
+
+#experience {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: visible;
+}
+
+/* =========================================
+   VERY SUBTLE TRADING GRID
+========================================= */
+
+#experience::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   CINEMATIC LIGHT SWEEP
+========================================= */
+
+#experience::after {
+    content: "";
+    position: absolute;
+
+    width: 45%;
+    height: 140%;
+
+    top: -20%;
+    left: -60%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.035),
+            transparent
+        );
+
+    transform: rotate(12deg);
+
+    animation: lightSweep 9s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes lightSweep {
+    0% {
+        left: -60%;
+    }
+
+    45% {
+        left: 120%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+#intro {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   MARKET LABEL
+========================================= */
+
+.market-status {
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: #8e969d;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    padding: 9px 18px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(8px);
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #5fca91;
+
+    margin-bottom: 20px;
+
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.intro-title {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    font-size: clamp(42px, 8vw, 92px);
+
+    font-weight: 200;
+
+    letter-spacing: 16px;
+
+    line-height: 1.05;
+
+    text-align: center;
+}
+
+.intro-title span {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    animation: titleReveal 1s ease forwards;
+}
+
+.intro-title span:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.intro-title span:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.intro-title span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* =========================================
+   HEART
+========================================= */
+
+.intro-symbol {
+    margin-top: 38px;
+
+    font-size: 34px;
+
+    color: #e5e8ea;
+
+    opacity: 0;
+
+    animation:
+        heartReveal 1.5s ease forwards 1.5s,
+        subtleHeartbeat 2.2s ease-in-out infinite 3s;
+}
+
+/* =========================================
+   INTRO ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartReveal {
+    to {
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes subtleHeartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.12);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   CINEMATIC TRADING CHART
+========================================= */
+
+.trading-chart {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    opacity: 0.32;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+/* =========================================
+   CHART GRID
+========================================= */
+
+.trading-chart::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(120, 140, 150, 0.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(120, 140, 150, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 55px;
+}
+
+/* =========================================
+   CHART LABEL
+========================================= */
+
+.chart-label {
+    position: absolute;
+
+    top: 8%;
+    left: 7%;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #89939a;
+
+    opacity: 0.7;
+}
+
+/* =========================================
+   PRICE MARKERS
+========================================= */
+
+.price {
+    position: absolute;
+
+    right: 7%;
+
+    font-size: 9px;
+
+    color: #707a81;
+
+    letter-spacing: 1px;
+}
+
+.price-one {
+    top: 25%;
+}
+
+.price-two {
+    top: 40%;
+}
+
+.price-three {
+    top: 55%;
+}
+
+.price-four {
+    top: 70%;
+}
+
+/* =========================================
+   CANDLE CONTAINER
+========================================= */
+
+.candles {
+    position: absolute;
+
+    width: 82%;
+    height: 55%;
+
+    left: 9%;
+    bottom: 18%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 2vw;
+}
+
+/* =========================================
+   CANDLES
+========================================= */
+
+.candle {
+    position: relative;
+
+    width: 7px;
+
+    border-radius: 1px;
+
+    opacity: 0;
+
+    transform-origin: center;
+
+    animation:
+        candleAppear 1s ease forwards,
+        candleFloat 4s ease-in-out infinite;
+}
+
+.candle::before,
+.candle::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    background: currentColor;
+}
+
+.candle::before {
+    height: 18px;
+    top: -18px;
+}
+
+.candle::after {
+    height: 18px;
+    bottom: -18px;
+}
+
+.candle.green {
+    background: #55d49a;
+    color: #55d49a;
+}
+
+.candle.red {
+    background: #d86b76;
+    color: #d86b76;
+}
+
+/* Candle heights */
+
+.c1 {
+    height: 55px;
+    animation-delay: 0.1s;
+}
+
+.c2 {
+    height: 85px;
+    animation-delay: 0.2s;
+}
+
+.c3 {
+    height: 120px;
+    animation-delay: 0.3s;
+}
+
+.c4 {
+    height: 75px;
+    animation-delay: 0.4s;
+}
+
+.c5 {
+    height: 145px;
+    animation-delay: 0.5s;
+}
+
+.c6 {
+    height: 170px;
+    animation-delay: 0.6s;
+}
+
+.c7 {
+    height: 110px;
+    animation-delay: 0.7s;
+}
+
+.c8 {
+    height: 190px;
+    animation-delay: 0.8s;
+}
+
+.c9 {
+    height: 220px;
+    animation-delay: 0.9s;
+}
+
+.c10 {
+    height: 150px;
+    animation-delay: 1s;
+}
+
+.c11 {
+    height: 245px;
+    animation-delay: 1.1s;
+}
+
+.c12 {
+    height: 270px;
+    animation-delay: 1.2s;
+}
+
+@keyframes candleAppear {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    to {
+        opacity: 0.65;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes candleFloat {
+    0%,
+    100% {
+        filter: brightness(0.8);
+    }
+
+    50% {
+        filter: brightness(1.15);
+    }
+}
+
+/* =========================================
+   LIVE PRICE MOVEMENT
+========================================= */
+
+.price-line {
+    position: absolute;
+
+    width: 82%;
+    height: 55%;
+
+    left: 9%;
+    bottom: 18%;
+
+    overflow: visible;
+
+    opacity: 0.75;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(85, 212, 154, 0.25)
+        );
+}
+
+.price-line polyline {
+    fill: none;
+
+    stroke: #78d6aa;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+
+    animation:
+        drawPrice 5s ease forwards,
+        priceGlow 3s ease-in-out infinite 5s;
+}
+
+@keyframes drawPrice {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes priceGlow {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* =========================================
+   MARKET DECISION
+========================================= */
+
+#decision {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 100px 30px 120px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(25, 32, 35, 0.72),
+            rgba(4, 6, 7, 0.94)
+        );
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#decision.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.decision-header {
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    flex-shrink: 0;
+}
+
+.terminal-tag {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    margin-bottom: 18px;
+
+    border:
+        1px solid rgba(120, 214, 170, 0.35);
+
+    border-radius: 3px;
+
+    color: #78d6aa;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    background:
+        rgba(120, 214, 170, 0.04);
+}
+
+.decision-header h2 {
+    margin: 0;
+
+    font-size:
+        clamp(24px, 4vw, 42px);
+
+    font-weight: 400;
+
+    letter-spacing: 6px;
+
+    color: #f1f3f4;
+}
+
+.decision-header p {
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.42);
+}
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.decision-question {
+    margin-bottom: 28px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================
+   BUTTON CONTAINER
+========================================= */
+
+.decision-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    width: min(700px, 90vw);
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   TRADE BUTTON
+========================================= */
+
+.trade-btn {
+    position: relative;
+
+    width: 180px;
+    min-height: 90px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.trade-btn span {
+    font-size: 18px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.trade-btn small {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, 0.38);
+}
+
+/* BUY */
+
+.trade-btn.buy {
+    border-color:
+        rgba(85, 212, 154, 0.25);
+}
+
+.trade-btn.buy span {
+    color: #55d49a;
+}
+
+.trade-btn.buy:hover {
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(85, 212, 154, 0.07);
+
+    border-color:
+        rgba(85, 212, 154, 0.65);
+
+    box-shadow:
+        0 0 25px rgba(85, 212, 154, 0.12);
+}
+
+/* SELL */
+
+.trade-btn.sell {
+    border-color:
+        rgba(216, 107, 118, 0.25);
+}
+
+.trade-btn.sell span {
+    color: #d86b76;
+}
+
+.trade-btn.sell:hover {
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(216, 107, 118, 0.07);
+
+    border-color:
+        rgba(216, 107, 118, 0.65);
+
+    box-shadow:
+        0 0 25px rgba(216, 107, 118, 0.12);
+}
+
+/* HOLD */
+
+.trade-btn.hold span {
+    color: #d6d9dc;
+}
+
+.trade-btn.hold:hover {
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================
+   DECISION MESSAGE
+========================================= */
+
+.decision-message {
+    min-height: 30px;
+
+    margin-top: 35px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    text-align: center;
+}
+
+/* =========================================
+   MARKET REACTIONS
+========================================= */
+
+.trading-chart.market-surge {
+    animation:
+        marketSurge 2.5s ease;
+}
+
+@keyframes marketSurge {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    40% {
+        transform: scale(1.025);
+        filter: brightness(1.35);
+    }
+
+    70% {
+        transform: scale(1.01);
+        filter: brightness(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.trading-chart.market-drop {
+    animation:
+        marketDrop 2.5s ease;
+}
+
+@keyframes marketDrop {
+    0% {
+        transform: translateY(0);
+        filter: brightness(1);
+    }
+
+    35% {
+        transform: translateY(8px);
+        filter: brightness(0.7);
+    }
+
+    65% {
+        transform: translateY(4px);
+        filter: brightness(0.82);
+    }
+
+    100% {
+        transform: translateY(0);
+        filter: brightness(1);
+    }
+}
+
+.trading-chart.market-pause {
+    animation:
+        marketPause 2.5s ease;
+}
+
+@keyframes marketPause {
+    0%,
+    100% {
+        opacity: 0.32;
+    }
+
+    50% {
+        opacity: 0.12;
+    }
+}
+
+/* =========================================
+   HIDDEN MARKET SIGNAL
+========================================= */
+
+.hidden-signal {
+    position: relative;
+
+    width: min(520px, 88vw);
+
+    margin: 35px auto 0;
+
+    padding: 20px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 24, 27, 0.96),
+            rgba(10, 13, 15, 0.98)
+        );
+
+    border:
+        1px solid rgba(85, 212, 154, 0.22);
+
+    box-shadow:
+        0 0 0 rgba(85, 212, 154, 0),
+        inset 0 0 30px rgba(85, 212, 154, 0.025);
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(18px)
+        scale(0.96);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.hidden-signal::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(85, 212, 154, 0.8),
+            transparent
+        );
+
+    animation:
+        signalScan 3s linear infinite;
+}
+
+.signal-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #55d49a;
+
+    font-weight: 600;
+}
+
+.signal-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55d49a;
+
+    box-shadow:
+        0 0 6px rgba(85, 212, 154, 0.8),
+        0 0 14px rgba(85, 212, 154, 0.35);
+
+    animation:
+        signalPulse 1.5s ease-in-out infinite;
+}
+
+.signal-body {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.signal-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 9px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(214, 217, 220, 0.55);
+}
+
+.signal-row strong {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: #d6d9dc;
+
+    font-weight: 500;
+}
+
+.secret-row {
+    margin-top: 3px;
+
+    border-bottom: none;
+}
+
+.secret-row strong {
+    font-size: 22px;
+
+    color: #e7a3b0;
+
+    text-shadow:
+        0 0 8px rgba(231, 163, 176, 0.6),
+        0 0 20px rgba(231, 163, 176, 0.25);
+
+    animation:
+        hiddenHeartPulse 2s ease-in-out infinite;
+}
+
+.signal-footer {
+    margin-top: 17px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+
+    text-align: center;
+}
+
+.hidden-signal.signal-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    box-shadow:
+        0 0 30px rgba(85, 212, 154, 0.08),
+        inset 0 0 30px rgba(85, 212, 154, 0.035);
+
+    pointer-events: auto;
+}
+
+@keyframes signalScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes signalPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes hiddenHeartPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================
+   MARKET ANOMALY
+========================================= */
+
+.hidden-signal.signal-anomaly {
+    border-color:
+        rgba(231, 163, 176, 0.45);
+
+    box-shadow:
+        0 0 35px rgba(231, 163, 176, 0.10),
+        inset 0 0 35px rgba(231, 163, 176, 0.04);
+
+    animation:
+        anomalyAlert 1.8s ease-in-out;
+}
+
+.hidden-signal.signal-anomaly .secret-row strong {
+    color: #ffb6c1;
+
+    text-shadow:
+        0 0 10px rgba(255, 182, 193, 0.9),
+        0 0 25px rgba(255, 182, 193, 0.5),
+        0 0 45px rgba(255, 182, 193, 0.25);
+
+    animation:
+        hiddenHeartPulse 0.7s ease-in-out infinite;
+}
+
+@keyframes anomalyAlert {
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            translateY(0)
+            scale(1.015);
+    }
+
+    50% {
+        transform:
+            translateY(0)
+            scale(0.995);
+    }
+
+    75% {
+        transform:
+            translateY(0)
+            scale(1.01);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* =========================================
+   SYSTEM WARNING
+========================================= */
+
+.system-warning {
+    position: relative;
+
+    width: min(520px, 88vw);
+
+    margin: 24px auto 0;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 18, 20, 0.97),
+            rgba(10, 12, 14, 0.98)
+        );
+
+    border:
+        1px solid rgba(216, 107, 118, 0.22);
+
+    box-shadow:
+        0 0 0 rgba(216, 107, 118, 0),
+        inset 0 0 35px rgba(216, 107, 118, 0.025);
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        visibility 0.9s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.system-warning::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216, 107, 118, 0.8),
+            transparent
+        );
+
+    animation:
+        warningScan 3.5s linear infinite;
+}
+
+.warning-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    color: #d86b76;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.warning-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    border:
+        1px solid rgba(216, 107, 118, 0.45);
+
+    font-size: 10px;
+
+    animation:
+        warningPulse 1.4s ease-in-out infinite;
+}
+
+.warning-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.warning-line {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.55);
+}
+
+.warning-asset {
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+    color: #d6d9dc;
+
+    font-weight: 500;
+}
+
+.warning-status {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.38);
+}
+
+.warning-status span {
+    color: #d86b76;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px rgba(216, 107, 118, 0.45);
+}
+
+.warning-reason {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    padding: 14px 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+}
+
+.warning-reason strong {
+    color: #e4a0a8;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 0 10px rgba(216, 107, 118, 0.2);
+}
+
+.warning-final {
+    margin-top: 20px;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    color:
+        rgba(214, 217, 220, 0.55);
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.system-warning.warning-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    border-color:
+        rgba(216, 107, 118, 0.38);
+
+    box-shadow:
+        0 0 35px rgba(216, 107, 118, 0.08),
+        inset 0 0 35px rgba(216, 107, 118, 0.035);
+
+    pointer-events: auto;
+}
+
+.system-warning.warning-active .warning-final {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+@keyframes warningScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes warningPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================
+   ENCRYPTED PRIVATE DATA
+========================================= */
+
+.private-data {
+    position: relative;
+
+    width: min(520px, 88vw);
+
+    margin: 24px auto 0;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 23, 22, 0.97),
+            rgba(8, 11, 12, 0.99)
+        );
+
+    border:
+        1px solid rgba(85, 212, 154, 0.18);
+
+    box-shadow:
+        0 0 0 rgba(85, 212, 154, 0),
+        inset 0 0 35px rgba(85, 212, 154, 0.025);
+
+    backdrop-filter: blur(14px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(22px)
+        scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.private-data::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(85, 212, 154, 0.8),
+            transparent
+        );
+
+    animation:
+        decryptScan 2.8s linear infinite;
+}
+
+.decrypt-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #55d49a;
+
+    font-weight: 600;
+}
+
+.decrypt-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55d49a;
+
+    box-shadow:
+        0 0 7px rgba(85, 212, 154, 0.8),
+        0 0 16px rgba(85, 212, 154, 0.35);
+
+    animation:
+        decryptPulse 1.3s ease-in-out infinite;
+}
+
+.decrypt-progress {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 13px 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+}
+
+.decrypt-progress span {
+    color: #55d49a;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px rgba(85, 212, 154, 0.3);
+}
+
+.decrypt-progress strong {
+    color: #d6d9dc;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+.identity-line {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 17px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+}
+
+.identity-line strong {
+    color: #d6d9dc;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(214, 217, 220, 0.25);
+}
+
+.private-message {
+    margin-top: 22px;
+
+    padding-top: 19px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    letter-spacing: 2.2px;
+
+    text-align: center;
+
+    color:
+        rgba(214, 217, 220, 0.65);
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+}
+
+.private-data.private-data-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    border-color:
+        rgba(85, 212, 154, 0.35);
+
+    box-shadow:
+        0 0 35px rgba(85, 212, 154, 0.08),
+        inset 0 0 35px rgba(85, 212, 154, 0.035);
+
+    pointer-events: auto;
+}
+
+.private-data.private-data-active .private-message {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    color:
+        rgba(231, 163, 176, 0.88);
+
+    text-shadow:
+        0 0 10px rgba(231, 163, 176, 0.18);
+}
+
+@keyframes decryptScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes decryptPulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* =========================================
+   VIDEO EDITING TIMELINE
+========================================= */
+
+.editing-timeline {
+    position: relative;
+
+    width: min(680px, 92vw);
+
+    margin: 30px auto 0;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 19, 21, 0.98),
+            rgba(7, 9, 11, 0.99)
+        );
+
+    border:
+        1px solid rgba(214, 217, 220, 0.12);
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.45),
+        inset 0 0 35px rgba(255, 255, 255, 0.015);
+
+    backdrop-filter: blur(14px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(30px)
+        scale(0.97);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.editing-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(214, 217, 220, 0.55),
+            transparent
+        );
+
+    animation:
+        editorScan 3s linear infinite;
+}
+
+.editing-timeline.editing-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+.timeline-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    color: #d6d9dc;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+}
+
+.timeline-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55d49a;
+
+    box-shadow:
+        0 0 7px rgba(85, 212, 154, 0.8);
+
+    animation:
+        editorDotPulse 1.5s ease-in-out infinite;
+}
+
+.timeline-status {
+    margin-left: auto;
+
+    color:
+        rgba(214, 217, 220, 0.3);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.editor-screen {
+    margin-top: 18px;
+
+    padding: 12px;
+
+    background:
+        rgba(4, 6, 7, 0.85);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+.editor-label {
+    margin-bottom: 10px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.preview-frame {
+    position: relative;
+
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(85, 212, 154, 0.06),
+            transparent 55%
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+.preview-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    animation:
+        gridMove 8s linear infinite;
+}
+
+.preview-text {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(214, 217, 220, 0.5);
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    animation:
+        previewFlicker 2.5s ease-in-out infinite;
+}
+
+.preview-heart {
+    position: absolute;
+
+    z-index: 3;
+
+    font-size: 28px;
+
+    color:
+        rgba(231, 163, 176, 0.75);
+
+    text-shadow:
+        0 0 10px rgba(231, 163, 176, 0.5),
+        0 0 25px rgba(231, 163, 176, 0.2);
+
+    animation:
+        editorHeartPulse 2s ease-in-out infinite;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    position: relative;
+
+    margin-top: 18px;
+
+    padding: 12px 10px 18px;
+
+    background:
+        rgba(5, 7, 8, 0.9);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.05);
+}
+
+.track-label {
+    margin: 5px 0;
+
+    color:
+        rgba(214, 217, 220, 0.3);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.track {
+    position: relative;
+
+    display: flex;
+
+    gap: 4px;
+
+    height: 28px;
+
+    margin-bottom: 9px;
+}
+
+.track span {
+    flex: 1;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    background:
+        rgba(85, 212, 154, 0.08);
+
+    animation:
+        clipGlow 2.5s ease-in-out infinite;
+}
+
+.audio-track span {
+    background:
+        rgba(231, 163, 176, 0.07);
+}
+
+.playhead {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 15%;
+
+    width: 1px;
+
+    background: #d6d9dc;
+
+    box-shadow:
+        0 0 8px rgba(214, 217, 220, 0.6);
+
+    animation:
+        playheadMove 4s linear infinite;
+}
+
+.editing-message {
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    text-align: center;
+
+    color:
+        rgba(231, 163, 176, 0.7);
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
+}
+
+.editing-timeline.editing-active .editing-message {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+@keyframes editorScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes editorDotPulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes gridMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, 30px);
+    }
+}
+
+@keyframes previewFlicker {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes editorHeartPulse {
+    0%,
+    100% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+@keyframes clipGlow {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes playheadMove {
+    0% {
+        left: 5%;
+    }
+
+    100% {
+        left: 95%;
+    }
+}
+
+/* =========================================
+   RECOVERED FILE
+========================================= */
+
+.recovered-file {
+    position: relative;
+
+    width: min(520px, 88vw);
+
+    margin: 28px auto 0;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 20, 22, 0.98),
+            rgba(8, 10, 12, 0.99)
+        );
+
+    border:
+        1px solid rgba(231, 163, 176, 0.18);
+
+    box-shadow:
+        0 0 0 rgba(231, 163, 176, 0),
+        inset 0 0 35px rgba(231, 163, 176, 0.025);
+
+    backdrop-filter: blur(14px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(25px)
+        scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.recovered-file::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(231, 163, 176, 0.8),
+            transparent
+        );
+
+    animation:
+        recoveryScan 2.6s linear infinite;
+}
+
+.recovered-file.recovered-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    border-color:
+        rgba(231, 163, 176, 0.38);
+
+    box-shadow:
+        0 0 35px rgba(231, 163, 176, 0.08),
+        inset 0 0 35px rgba(231, 163, 176, 0.035);
+
+    pointer-events: auto;
+}
+
+.recovered-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding-bottom: 16px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    color: #e7a3b0;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+}
+
+.recovered-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+
+    border:
+        1px solid rgba(231, 163, 176, 0.45);
+
+    font-size: 9px;
+
+    animation:
+        recoveredIconPulse 1.5s ease-in-out infinite;
+}
+
+.file-status {
+    margin-left: auto;
+
+    color:
+        rgba(231, 163, 176, 0.45);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+.file-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.file-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 9px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    font-size: 9px;
+
+    letter-spacing: 1.7px;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+}
+
+.file-row strong {
+    color:
+        rgba(214, 217, 220, 0.72);
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+}
+
+.recovered-warning {
+    margin-top: 21px;
+
+    padding: 17px 10px;
+
+    border-top:
+        1px solid rgba(231, 163, 176, 0.12);
+
+    border-bottom:
+        1px solid rgba(231, 163, 176, 0.12);
+
+    text-align: center;
+
+    color:
+        rgba(231, 163, 176, 0.7);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px rgba(231, 163, 176, 0.15);
+}
+
+.recover-btn {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 21px;
+
+    padding: 13px 18px;
+
+    background:
+        rgba(231, 163, 176, 0.04);
+
+    border:
+        1px solid rgba(231, 163, 176, 0.28);
+
+    color:
+        #e7a3b0;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.recover-btn:hover {
+    background:
+        rgba(231, 163, 176, 0.09);
+
+    border-color:
+        rgba(231, 163, 176, 0.6);
+
+    box-shadow:
+        0 0 22px rgba(231, 163, 176, 0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+.recover-btn:active {
+    transform:
+        scale(0.98);
+}
+
+.recovery-message {
+    margin-top: 14px;
+
+    text-align: center;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+.recovered-file.recovery-running .recovery-message {
+    opacity: 1;
+
+    color:
+        #55d49a;
+}
+
+@keyframes recoveryScan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes recoveredIconPulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================
+   BIRTHDAY COUNTDOWN SCREEN
+========================================= */
+
+.countdown-screen {
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding: 80px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(231, 163, 176, 0.055),
+            transparent 45%
+        ),
+        rgba(5, 7, 9, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        visibility 1.5s ease;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+.countdown-screen.countdown-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+}
+
+/* =========================================
+   COUNTDOWN TERMINAL
+========================================= */
+
+.countdown-terminal {
+    position: relative;
+
+    width: min(720px, 92vw);
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 18, 21, 0.98),
+            rgba(7, 9, 11, 0.99)
+        );
+
+    border:
+        1px solid rgba(231, 163, 176, 0.18);
+
+    box-shadow:
+        0 0 70px rgba(231, 163, 176, 0.045),
+        inset 0 0 50px rgba(231, 163, 176, 0.018);
+
+    backdrop-filter: blur(18px);
+}
+
+/* =========================================
+   COUNTDOWN TOP
+========================================= */
+
+.countdown-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+}
+
+.countdown-tag {
+    color: #e7a3b0;
+}
+
+.countdown-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        rgba(214, 217, 220, 0.4);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55d49a;
+
+    box-shadow:
+        0 0 8px rgba(85, 212, 154, 0.7);
+
+    animation:
+        statusPulse 1.5s ease-in-out infinite;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.countdown-divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(231, 163, 176, 0.25),
+            transparent
+        );
+}
+
+/* =========================================
+   COUNTDOWN MAIN
+========================================= */
+
+.countdown-main {
+    text-align: center;
+
+    padding: 70px 20px 65px;
+}
+
+.countdown-eyebrow {
+    margin: 0 0 18px;
+
+    color:
+        rgba(231, 163, 176, 0.55);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.countdown-title {
+    margin: 0;
+
+    color:
+        rgba(242, 244, 245, 0.92);
+
+    font-size:
+        clamp(32px, 6vw, 58px);
+
+    line-height: 1.05;
+
+    font-weight: 300;
+
+    letter-spacing: 4px;
+}
+
+.countdown-title span {
+    color: #e7a3b0;
+
+    text-shadow:
+        0 0 25px rgba(231, 163, 176, 0.18);
+}
+
+.countdown-subtitle {
+    margin: 25px 0 0;
+
+    color:
+        rgba(214, 217, 220, 0.35);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+/* =========================================
+   CLOCK
+========================================= */
+
+.countdown-clock {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 55px;
+}
+
+.time-box {
+    min-width: 125px;
+}
+
+.time-box span {
+    display: block;
+
+    color: #e7a3b0;
+
+    font-size:
+        clamp(42px, 8vw, 72px);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 25px rgba(231, 163, 176, 0.12);
+}
+
+.time-box small {
+    display: block;
+
+    margin-top: 13px;
+
+    color:
+        rgba(214, 217, 220, 0.3);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.time-separator {
+    color:
+        rgba(231, 163, 176, 0.4);
+
+    font-size: 42px;
+
+    font-weight: 200;
+
+    margin: 0 8px;
+
+    transform:
+        translateY(-10px);
+
+    animation:
+        colonBlink 1s steps(1) infinite;
+}
+
+/* =========================================
+   PROGRESS LINE
+========================================= */
+
+.countdown-line {
+    position: relative;
+
+    width: min(480px, 80%);
+
+    height: 1px;
+
+    margin: 48px auto 0;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    overflow: hidden;
+}
+
+.countdown-line span {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 25%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e7a3b0,
+            transparent
+        );
+
+    animation:
+        countdownScan 2.5s linear infinite;
+}
+
+/* =========================================
+   COUNTDOWN NOTE
+========================================= */
+
+.countdown-note {
+    margin: 25px 0 0;
+
+    color:
+        rgba(214, 217, 220, 0.25);
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+}
+
+/* =========================================
+   COUNTDOWN FOOTER
+========================================= */
+
+.countdown-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.05);
+
+    color:
+        rgba(214, 217, 220, 0.25);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.countdown-footer strong {
+    color: #55d49a;
+
+    font-weight: 500;
+}
+
+/* =========================================
+   COUNTDOWN ANIMATIONS
+========================================= */
+
+@keyframes statusPulse {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes colonBlink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes countdownScan {
+    0% {
+        left: -30%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* =========================================
+   BIRTHDAY REVEAL
+========================================= */
+
+.birthday-reveal {
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(231, 163, 176, 0.09),
+            transparent 38%
+        ),
+        #050709;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        scale(0.96);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease,
+        visibility 2s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 50;
+}
+
+.birthday-reveal.reveal-active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+    pointer-events: auto;
+}
+
+/* =========================================
+   GLOW
+========================================= */
+
+.reveal-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(231, 163, 176, 0.12),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    opacity: 0;
+
+    transform:
+        scale(0.5);
+
+    transition:
+        opacity 3s ease,
+        transform 3s ease;
+}
+
+.reveal-active .reveal-glow {
+    opacity: 1;
+
+    transform:
+        scale(1.3);
+
+    animation:
+        revealGlowPulse 4s ease-in-out infinite;
+}
+
+/* =========================================
+   REVEAL CONTENT
+========================================= */
+
+.reveal-content {
+    position: relative;
+
+    width: min(800px, 92vw);
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+/* =========================================
+   HEART
+========================================= */
+
+.reveal-heart {
+    font-size: 46px;
+
+    color: #e7a3b0;
+
+    opacity: 0;
+
+    transform:
+        scale(0.3)
+        translateY(20px);
+
+    text-shadow:
+        0 0 20px rgba(231, 163, 176, 0.5),
+        0 0 60px rgba(231, 163, 176, 0.2);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.reveal-active .reveal-heart {
+    opacity: 1;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+    animation:
+        heartBeat 1.8s ease-in-out infinite;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.reveal-status {
+    margin-top: 28px;
+
+    color:
+        rgba(231, 163, 176, 0.45);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease 0.8s;
+}
+
+.reveal-active .reveal-status {
+    opacity: 1;
+}
+
+/* =========================================
+   POSITION CLOSED
+========================================= */
+
+.reveal-title {
+    margin: 30px 0 0;
+
+    color:
+        rgba(242, 244, 245, 0.92);
+
+    font-size:
+        clamp(42px, 8vw, 82px);
+
+    line-height: 0.95;
+
+    font-weight: 200;
+
+    letter-spacing: 7px;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity 1.4s ease 1.2s,
+        transform 1.4s ease 1.2s;
+}
+
+.reveal-active .reveal-title {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.reveal-title span {
+    color: #e7a3b0;
+
+    text-shadow:
+        0 0 35px rgba(231, 163, 176, 0.15);
+}
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.reveal-question {
+    margin-top: 28px;
+
+    color:
+        rgba(214, 217, 220, 0.32);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease 2.3s;
+}
+
+.reveal-active .reveal-question {
+    opacity: 1;
+}
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.reveal-message {
+    margin: 50px auto 0;
+
+    max-width: 500px;
+
+    padding: 22px;
+
+    border-top:
+        1px solid rgba(231, 163, 176, 0.12);
+
+    border-bottom:
+        1px solid rgba(231, 163, 176, 0.12);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1.3s ease 3s,
+        transform 1.3s ease 3s;
+}
+
+.reveal-active .reveal-message {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.reveal-message p {
+    margin: 0;
+
+    color:
+        rgba(231, 163, 176, 0.68);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    letter-spacing: 3px;
+}
+
+/* =========================================
+   BIRTHDAY LINE
+========================================= */
+
+.birthday-line {
+    width: 0;
+
+    height: 1px;
+
+    margin: 45px auto 28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e7a3b0,
+            transparent
+        );
+
+    transition:
+        width 1.5s ease 4.2s;
+}
+
+.reveal-active .birthday-line {
+    width: min(420px, 70%);
+}
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+.birthday-small {
+    margin: 0;
+
+    color:
+        rgba(214, 217, 220, 0.3);
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease 4.5s;
+}
+
+.reveal-active .birthday-small {
+    opacity: 1;
+}
+
+/* =========================================
+   FINAL BIRTHDAY TITLE
+========================================= */
+
+.birthday-title {
+    margin: 20px 0 0;
+
+    color:
+        rgba(242, 244, 245, 0.95);
+
+    font-size:
+        clamp(30px, 6vw, 58px);
+
+    font-weight: 300;
+
+    line-height: 1.15;
+
+    letter-spacing: 4px;
+
+    opacity: 0;
+
+    transform:
+        scale(0.8);
+
+    transition:
+        opacity 1.5s ease 4.9s,
+        transform 1.5s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        4.9s;
+}
+
+.reveal-active .birthday-title {
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+    text-shadow:
+        0 0 35px rgba(231, 163, 176, 0.15);
+}
+
+.birthday-title span {
+    display: inline-block;
+
+    color: #e7a3b0;
+
+    text-shadow:
+        0 0 25px rgba(231, 163, 176, 0.25);
+}
+
+/* =========================================
+   FROM
+========================================= */
+
+.birthday-from {
+    margin-top: 25px;
+
+    color:
+        rgba(231, 163, 176, 0.6);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 1.2s ease 6s,
+        transform 1.2s ease 6s;
+}
+
+.reveal-active .birthday-from {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================================
+   REVEAL ANIMATIONS
+========================================= */
+
+@keyframes revealGlowPulse {
+    0%,
+    100% {
+        opacity: 0.5;
+
+        transform:
+            scale(1.1);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.35);
+    }
+}
+
+@keyframes heartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    #decision {
+        padding:
+            80px 18px 100px;
+
+        justify-content:
+            flex-start;
+    }
+
+    .decision-buttons {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .trade-btn {
+        width:
+            min(280px, 80vw);
+
+        min-height: 70px;
+    }
+
+    .decision-header {
+        margin-bottom: 30px;
+    }
+
+    .decision-header h2 {
+        letter-spacing: 3px;
+    }
+
+    .decision-question {
+        text-align: center;
+
+        line-height: 1.6;
+    }
+
+    .editing-timeline {
+        width: 94vw;
+
+        padding: 15px;
+    }
+
+    .preview-frame {
+        height: 150px;
+    }
+
+    .recovered-file,
+    .hidden-signal,
+    .system-warning,
+    .private-data {
+        width: 92vw;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .countdown-screen {
+        padding:
+            50px 15px;
+    }
+
+    .countdown-terminal {
+        padding: 20px;
+    }
+
+    .countdown-main {
+        padding:
+            55px 5px 50px;
+    }
+
+    .countdown-clock {
+        margin-top: 42px;
+    }
+
+    .time-box {
+        min-width: 75px;
+    }
+
+    .time-box span {
+        font-size: 38px;
+    }
+
+    .time-box small {
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+    .time-separator {
+        font-size: 28px;
+
+        margin: 0 3px;
+    }
+
+    .countdown-footer {
+        font-size: 6px;
+    }
+
+    .birthday-reveal {
+        padding:
+            60px 18px;
+    }
+
+    .reveal-title {
+        letter-spacing: 4px;
+    }
+
+    .reveal-message {
+        margin-top: 40px;
+    }
+
+    .birthday-title {
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .intro-title {
+        letter-spacing: 6px;
+
+        font-size: 38px;
+    }
+
+    .market-status {
+        letter-spacing: 3px;
+    }
+
+    .decision-header h2 {
+        font-size: 22px;
+    }
+
+    .trade-btn {
+        width: 85vw;
+    }
+
+    .file-row strong {
+        font-size: 8px;
+    }
+}
+

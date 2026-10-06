@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>THANGOO — Private Market</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main id="experience">
+
+
+        <!-- =========================================
+             TRADING CHART BACKGROUND
+        ========================================== -->
+
+        <div
+            class="trading-chart"
+            id="tradingChart"
+        >
+
+            <div class="chart-label">
+                MARKET / PRIVATE
+            </div>
+
+
+            <!-- PRICE MARKERS -->
+
+            <div class="price price-one">
+                102.84
+            </div>
+
+            <div class="price price-two">
+                104.21
+            </div>
+
+            <div class="price price-three">
+                106.72
+            </div>
+
+            <div class="price price-four">
+                108.13
+            </div>
+
+
+            <!-- CANDLESTICKS -->
+
+            <div class="candles">
+
+                <span class="candle red c1"></span>
+                <span class="candle green c2"></span>
+                <span class="candle green c3"></span>
+                <span class="candle red c4"></span>
+                <span class="candle green c5"></span>
+                <span class="candle green c6"></span>
+                <span class="candle red c7"></span>
+                <span class="candle green c8"></span>
+                <span class="candle green c9"></span>
+                <span class="candle red c10"></span>
+                <span class="candle green c11"></span>
+                <span class="candle green c12"></span>
+
+            </div>
+
+
+            <!-- LIVE PRICE LINE -->
+
+            <svg
+                class="price-line"
+                viewBox="0 0 1000 400"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+            >
+
+                <polyline
+                    points="
+                        0,300
+                        80,280
+                        150,310
+                        220,250
+                        290,270
+                        350,210
+                        410,235
+                        470,180
+                        520,220
+                        570,190
+                        620,245
+                        680,150
+                        730,190
+                        770,120
+                        810,200
+                        850,145
+                        900,180
+                        940,110
+                        1000,140
+                    "
+                />
+
+            </svg>
+
+        </div>
+
+
+        <!-- =========================================
+             CINEMATIC INTRO
+        ========================================== -->
+
+        <section id="intro">
+
+            <div class="market-status">
+                PRIVATE MARKET
+            </div>
+
+            <div class="loading">
+                INITIALIZING...
+            </div>
+
+            <div class="intro-title">
+
+                <span>ONE</span>
+                <span>SPECIAL</span>
+                <span>POSITION</span>
+
+            </div>
+
+            <div class="intro-symbol">
+                ♡
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             MARKET DECISION
+        ========================================== -->
+
+        <section id="decision">
+
+
+            <!-- DECISION HEADER -->
+
+            <div class="decision-header">
+
+                <span class="terminal-tag">
+                    PRIVATE TERMINAL
+                </span>
+
+                <h2>
+                    POSITION DETECTED
+                </h2>
+
+                <p>
+                    THANGOO / UNKNOWN ASSET
+                </p>
+
+            </div>
+
+
+            <!-- DECISION QUESTION -->
+
+            <div class="decision-question">
+                WHAT WOULD YOU DO?
+            </div>
+
+
+            <!-- TRADE BUTTONS -->
+
+            <div class="decision-buttons">
+
+                <button
+                    id="buyBtn"
+                    class="trade-btn buy"
+                >
+
+                    <span>
+                        BUY
+                    </span>
+
+                    <small>
+                        ENTER POSITION
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="sellBtn"
+                    class="trade-btn sell"
+                >
+
+                    <span>
+                        SELL
+                    </span>
+
+                    <small>
+                        EXIT POSITION
+                    </small>
+
+                </button>
+
+
+                <button
+                    id="holdBtn"
+                    class="trade-btn hold"
+                >
+
+                    <span>
+                        HOLD
+                    </span>
+
+                    <small>
+                        WAIT FOR SIGNAL
+                    </small>
+
+                </button>
+
+            </div>
+
+
+            <!-- DECISION MESSAGE -->
+
+            <div
+                id="decisionMessage"
+                class="decision-message"
+            ></div>
+
+
+            <!-- =====================================
+                 STEP 10 — HIDDEN MARKET SIGNAL
+            ====================================== -->
+
+            <div
+                id="hiddenSignal"
+                class="hidden-signal"
+            >
+
+                <div class="signal-header">
+
+                    <span class="signal-dot"></span>
+
+                    SIGNAL DETECTED
+
+                </div>
+
+
+                <div class="signal-body">
+
+                    <div class="signal-row">
+
+                        <span>
+                            PATTERN
+                        </span>
+
+                        <strong>
+                            UNUSUAL
+                        </strong>
+
+                    </div>
+
+
+                    <div class="signal-row">
+
+                        <span>
+                            CORRELATION
+                        </span>
+
+                        <strong>
+                            82.4%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="signal-row">
+
+                        <span>
+                            MARKET BEHAVIOUR
+                        </span>
+
+                        <strong>
+                            UNEXPECTED
+                        </strong>
+
+                    </div>
+
+
+                    <div class="signal-row secret-row">
+
+                        <span>
+                            HIDDEN SIGNAL
+                        </span>
+
+                        <strong>
+                            ♡
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="signal-footer">
+                    ANALYZING POSITION...
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 STEP 12 — SYSTEM WARNING
+            ====================================== -->
+
+            <div
+                id="systemWarning"
+                class="system-warning"
+            >
+
+                <div class="warning-header">
+
+                    <span class="warning-icon">
+                        ⚠
+                    </span>
+
+                    <span>
+                        SYSTEM NOTICE
+                    </span>
+
+                </div>
+
+
+                <div class="warning-content">
+
+                    <div class="warning-line">
+                        ASSET IDENTIFICATION FAILED
+                    </div>
+
+                    <div class="warning-asset">
+                        THANGOO / UNKNOWN ASSET
+                    </div>
+
+                    <div class="warning-status">
+
+                        <span>
+                            STATUS:
+                        </span>
+
+                        <span>
+                            ██████████
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="warning-reason">
+
+                    <span>
+                        REASON:
+                    </span>
+
+                    <strong>
+                        EMOTIONAL DATA DETECTED
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="warningFinal"
+                    class="warning-final"
+                >
+                    THIS POSITION WAS NEVER MEANT TO BE TRADED.
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 STEP 13 — ENCRYPTED PRIVATE DATA
+            ====================================== -->
+
+            <div
+                id="privateData"
+                class="private-data"
+            >
+
+                <div class="decrypt-header">
+
+                    <span class="decrypt-dot"></span>
+
+                    DECRYPTING PRIVATE DATA...
+
+                </div>
+
+
+                <div class="decrypt-progress">
+
+                    <span>
+                        ████████████████
+                    </span>
+
+                    <strong>
+                        100%
+                    </strong>
+
+                </div>
+
+
+                <div class="identity-line">
+
+                    <span>
+                        IDENTITY MATCH:
+                    </span>
+
+                    <strong>
+                        01
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="privateMessage"
+                    class="private-message"
+                >
+                    THERE IS ONLY ONE POSITION
+                    I WOULD NEVER CLOSE.
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 STEP 14 — VIDEO EDITING TIMELINE
+            ====================================== -->
+
+            <div
+                id="editingTimeline"
+                class="editing-timeline"
+            >
+
+                <div class="timeline-header">
+
+                    <span class="timeline-dot"></span>
+
+                    <span>
+                        PRIVATE EDITOR
+                    </span>
+
+                    <span class="timeline-status">
+                        TIMELINE LOADED
+                    </span>
+
+                </div>
+
+
+                <div class="editor-screen">
+
+                    <div class="editor-label">
+                        PROJECT / THANGOO
+                    </div>
+
+
+                    <div class="preview-frame">
+
+                        <div class="preview-grid"></div>
+
+                        <div class="preview-text">
+                            SIGNAL
+                        </div>
+
+                        <div class="preview-heart">
+                            ♡
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="track-label">
+                        VIDEO
+                    </div>
+
+
+                    <div class="track video-track">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="track-label">
+                        AUDIO
+                    </div>
+
+
+                    <div class="track audio-track">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="playhead"></div>
+
+                </div>
+
+
+                <div class="editing-message">
+                    SOMETHING WAS EDITED OUT.
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 STEP 15 — RECOVERED FILE
+            ====================================== -->
+
+            <div
+                id="recoveredFile"
+                class="recovered-file"
+            >
+
+                <div class="recovered-header">
+
+                    <span class="recovered-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        RECOVERED FILE
+                    </span>
+
+                    <span class="file-status">
+                        UNSTABLE
+                    </span>
+
+                </div>
+
+
+                <div class="file-info">
+
+                    <div class="file-row">
+
+                        <span>
+                            FILE
+                        </span>
+
+                        <strong>
+                            CLIP_01
+                        </strong>
+
+                    </div>
+
+
+                    <div class="file-row">
+
+                        <span>
+                            SOURCE
+                        </span>
+
+                        <strong>
+                            UNKNOWN
+                        </strong>
+
+                    </div>
+
+
+                    <div class="file-row">
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong>
+                            CORRUPTED / RECOVERED
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recovered-warning">
+
+                    THIS FILE WAS NEVER
+                    SUPPOSED TO EXIST.
+
+                </div>
+
+
+                <button
+                    id="recoverBtn"
+                    class="recover-btn"
+                >
+                    RECOVER FILE
+                </button>
+
+
+                <div
+                    id="recoveryMessage"
+                    class="recovery-message"
+                >
+                    RECOVERY INITIALIZING...
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================================
+             BIRTHDAY COUNTDOWN SCREEN
+        ========================================== -->
+
+        <section
+            id="countdownScreen"
+            class="countdown-screen"
+        >
+
+            <div class="countdown-terminal">
+
+
+                <!-- COUNTDOWN TOP -->
+
+                <div class="countdown-top">
+
+                    <span class="countdown-tag">
+                        PRIVATE TERMINAL
+                    </span>
+
+
+                    <span class="countdown-status">
+
+                        <span class="status-dot"></span>
+
+                        MARKET ACTIVE
+
+                    </span>
+
+                </div>
+
+
+                <div class="countdown-divider"></div>
+
+
+                <!-- COUNTDOWN CONTENT -->
+
+                <div class="countdown-main">
+
+                    <p class="countdown-eyebrow">
+                        NEXT MARKET EVENT
+                    </p>
+
+
+                    <h2 class="countdown-title">
+
+                        THE POSITION<br>
+
+                        REACHES
+                        <span>ZERO</span>
+
+                    </h2>
+
+
+                    <p class="countdown-subtitle">
+                        WAITING FOR THE FINAL SIGNAL
+                    </p>
+
+
+                    <!-- CLOCK -->
+
+                    <div class="countdown-clock">
+
+
+                        <div class="time-box">
+
+                            <span id="countHours">
+                                00
+                            </span>
+
+                            <small>
+                                HOURS
+                            </small>
+
+                        </div>
+
+
+                        <div class="time-separator">
+                            :
+                        </div>
+
+
+                        <div class="time-box">
+
+                            <span id="countMinutes">
+                                00
+                            </span>
+
+                            <small>
+                                MINUTES
+                            </small>
+
+                        </div>
+
+
+                        <div class="time-separator">
+                            :
+                        </div>
+
+
+                        <div class="time-box">
+
+                            <span id="countSeconds">
+                                05
+                            </span>
+
+                            <small>
+                                SECONDS
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SCANNING LINE -->
+
+                    <div class="countdown-line">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <p class="countdown-note">
+                        SOMETHING SPECIAL IS ABOUT TO BE REVEALED.
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="countdown-footer">
+
+                    <span>
+                        ASSET: THANGOO
+                    </span>
+
+
+                    <span>
+
+                        STATUS:
+
+                        <strong>
+                            WAITING
+                        </strong>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             BIRTHDAY REVEAL
+        ========================================== -->
+
+        <section
+            id="birthdayReveal"
+            class="birthday-reveal"
+        >
+
+            <div class="reveal-glow"></div>
+
+
+            <div class="reveal-content">
+
+
+                <!-- HEART -->
+
+                <div class="reveal-heart">
+                    ♡
+                </div>
+
+
+                <!-- STATUS -->
+
+                <p class="reveal-status">
+                    PRIVATE MARKET CLOSED
+                </p>
+
+
+                <!-- POSITION -->
+
+                <h1 class="reveal-title">
+
+                    POSITION<br>
+
+                    <span>
+                        CLOSED.
+                    </span>
+
+                </h1>
+
+
+                <!-- QUESTION -->
+
+                <p class="reveal-question">
+                    ...OR WAS IT?
+                </p>
+
+
+                <!-- MESSAGE -->
+
+                <div class="reveal-message">
+
+                    <p>
+                        THIS ONE WAS NEVER
+                        MEANT TO BE CLOSED.
+                    </p>
+
+                </div>
+
+
+                <!-- LINE -->
+
+                <div class="birthday-line"></div>
+
+
+                <!-- SMALL TEXT -->
+
+                <p class="birthday-small">
+                    TODAY'S SPECIAL REVEAL
+                </p>
+
+
+                <!-- FINAL BIRTHDAY -->
+
+                <h2 class="birthday-title">
+
+                    HAPPY BIRTHDAY
+
+                    <span>
+                        THANGOO
+                    </span>
+
+                    ❤️
+
+                </h2>
+
+
+                <!-- FROM -->
+
+                <p class="birthday-from">
+                    From your chellooo ♾️
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
